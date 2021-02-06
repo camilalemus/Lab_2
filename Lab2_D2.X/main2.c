@@ -42,7 +42,7 @@ int DebounceCounter1 = 0;
 void setup(void);
 
 //******************************************************************************
-//                           CICLO PRINCIPAL
+//                              CICLO PRINCIPAL
 //******************************************************************************
 void main(void) {
     setup ();
@@ -50,7 +50,7 @@ void main(void) {
 }
 
 //******************************************************************************
-//                              SETUP
+//                                  SETUP
 //******************************************************************************
 
 void setup(void) {
@@ -64,17 +64,24 @@ void setup(void) {
     OPTION_REGbits.PS0 = 1;         //Prescaler 1:32
     OPTION_REGbits.PS1 = 0;
     OPTION_REGbits.PS2 = 0;
-
-    TMR0 = 0;                       //Set Timer0 start point
     OPTION_REGbits.nRBPU = 0;       //Set PortB as pullups
+    TMR0 = 0;                       //Set Timer0 start point
     TRISC = 0;                      //Set Port C and B are outputs
     TRISD = 0;
     PORTC = 0;                      // Turn off display and LEDs
     PORTD = 0;
-    TRISBbits.TRISB1 = 1;           //Inputs B0 and B1 because push buttons
+    TRISBbits.TRISB1 = 1;           //Inputs B0 and B1 because of push buttons
     TRISBbits.TRISB0 = 1;
 }
 
-void __interrupt() isr(void){
-    
+void __interrupt() isr(void) {
+    if (INTCONbits.TMR0IF == 1) {  //When Timer 0 overflows
+        if (PORTBbits.RB0 == 0) { //If the push button is pressed down, add to the Debounce Counter
+            DebounceCounter1++;
+        }
+        else if (PORTBbits.RB1 == 0){
+            DebounceCounter1--;
+        }
+        INTCONbits.TMR0IF = 0; //Turn off the interrupt flag
+    }
 }
