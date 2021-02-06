@@ -30,8 +30,49 @@
 
 #include <xc.h>
 
+//******************************************************************************
+//                                  VARIABLES
+//******************************************************************************
+
+int DebounceCounter1 = 0;
+
+//******************************************************************************
+//                           INSTANCIAR FUNCIONES
+//******************************************************************************
+void setup(void);
+
+//******************************************************************************
+//                           CICLO PRINCIPAL
+//******************************************************************************
 void main(void) {
+    setup ();
     return;
+}
+
+//******************************************************************************
+//                              SETUP
+//******************************************************************************
+
+void setup(void) {
+    
+    INTCONbits.GIE = 1;             //Set Global interrupts enable
+    INTCONbits.TMR0IE = 1;          //Enable Timer0 Interrupts
+    OPTION_REGbits.PSA = 0;         //Set Prescaler to Timer0
+    OPTION_REGbits.T0CS = 0;        //Internal clock
+    OPTION_REGbits.INTEDG = 0;      //Interrupt occurs on the falling edge
+
+    OPTION_REGbits.PS0 = 1;         //Prescaler 1:32
+    OPTION_REGbits.PS1 = 0;
+    OPTION_REGbits.PS2 = 0;
+
+    TMR0 = 0;                       //Set Timer0 start point
+    OPTION_REGbits.nRBPU = 0;       //Set PortB as pullups
+    TRISC = 0;                      //Set Port C and B are outputs
+    TRISD = 0;
+    PORTC = 0;                      // Turn off display and LEDs
+    PORTD = 0;
+    TRISBbits.TRISB1 = 1;           //Inputs B0 and B1 because push buttons
+    TRISBbits.TRISB0 = 1;
 }
 
 void __interrupt() isr(void){
