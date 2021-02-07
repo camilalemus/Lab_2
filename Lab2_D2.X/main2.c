@@ -29,6 +29,7 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
+#include <stdint.h>
 
 //******************************************************************************
 //                                  VARIABLES
@@ -44,9 +45,11 @@ void setup(void);
 //******************************************************************************
 //                              CICLO PRINCIPAL
 //******************************************************************************
+
 void main(void) {
-    setup ();
-    return;
+    setup();
+    while (1) {
+    }
 }
 
 //******************************************************************************
@@ -55,33 +58,54 @@ void main(void) {
 
 void setup(void) {
     
+    ANSEL = 0;
+    ANSELH = 0;
     INTCONbits.GIE = 1;             //Set Global interrupts enable
     INTCONbits.TMR0IE = 1;          //Enable Timer0 Interrupts
     OPTION_REGbits.PSA = 0;         //Set Prescaler to Timer0
     OPTION_REGbits.T0CS = 0;        //Internal clock
-    OPTION_REGbits.INTEDG = 0;      //Interrupt occurs on the falling edge
+ //   OPTION_REGbits.INTEDG = 0;      //Interrupt occurs on the falling edge
 
     OPTION_REGbits.PS0 = 1;         //Prescaler 1:32
     OPTION_REGbits.PS1 = 0;
     OPTION_REGbits.PS2 = 0;
-    OPTION_REGbits.nRBPU = 0;       //Set PortB as pullups
+    //OPTION_REGbits.nRBPU = 0;       //Set PortB as pullups
     TMR0 = 0;                       //Set Timer0 start point
-    TRISC = 0;                      //Set Port C and B are outputs
+    TRISC = 0;                      //Set Port C and B bc are outputs
     TRISD = 0;
+    TRISB = 0;
     PORTC = 0;                      // Turn off display and LEDs
     PORTD = 0;
     TRISBbits.TRISB1 = 1;           //Inputs B0 and B1 because of push buttons
     TRISBbits.TRISB0 = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.RBIE = 1;
+    IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
+    INTCONbits.RBIF = 0;
 }
 
+//******************************************************************************
+//                                  FUNCIONES
+//******************************************************************************
+
+void counter (){
+    
+}
+
+
+//******************************************************************************
+//                          INTERRUPCIONES
+//******************************************************************************
+
 void __interrupt() isr(void) {
-    if (INTCONbits.TMR0IF == 1) {  //When Timer 0 overflows
-        if (PORTBbits.RB0 == 0) { //If the push button is pressed down, add to the Debounce Counter
-            DebounceCounter1++;
+    if (INTCONbits.RBIF == 1) { //When Timer 0 overflows
+        if (PORTBbits.RB0 == 1) { //If the push button is pressed down, add to the Debounce Counter
+            PORTD--;
         }
-        else if (PORTBbits.RB1 == 0){
-            DebounceCounter1--;
+        else if (PORTBbits.RB1 == 1){
+            PORTD++;
         }
-        INTCONbits.TMR0IF = 0; //Turn off the interrupt flag
+        INTCONbits.RBIF = 0; //Turn off the interrupt flag
     }
 }
