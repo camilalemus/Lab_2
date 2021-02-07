@@ -100,16 +100,11 @@ void counter (){
 
 void __interrupt() isr(void) {
     if (INTCONbits.RBIF == 1) {
-        if (PORTBbits.RB0 == 1) {
-
-            if (INTCONbits.RBIF == 1) { //When Timer 0 overflows
-                if (PORTBbits.RB0 == 1) { //If the push button is pressed down, add to the Debounce Counter
-                    PORTD--;
-                } else if (PORTBbits.RB1 == 1) {
-                    PORTD++;
-                }
-                INTCONbits.RBIF = 0; //Turn off the interrupt flag
-            }
+        if (PORTBbits.RB0 == 1) { //If the push button is pressed down, add to the Debounce Counter
+            PORTD--;
+        } else if (PORTBbits.RB1 == 1) {
+            PORTD++;
         }
+        INTCONbits.RBIF = 0; //Turn off the interrupt flag
     }
 }
