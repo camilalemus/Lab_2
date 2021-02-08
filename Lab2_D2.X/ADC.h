@@ -20,6 +20,7 @@
 //Third parameter: Justistified
 //Fourth parameter: Voltage Reference bit
 //Look page 104 and 105 for more information.
+//Read ADC.c comments
 //******************************************************************************
 
 void ADC_init(uint8_t ADCSbit,uint8_t Channel, uint8_t Justified, uint8_t Vref);
