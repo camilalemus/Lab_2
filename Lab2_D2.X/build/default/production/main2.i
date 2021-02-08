@@ -2659,6 +2659,7 @@ void ADC_init(uint8_t ADCSbit,uint8_t Channel, uint8_t Justified, uint8_t Vref);
 
 
 uint8_t ADC_cflag;
+uint8_t ADC_analogvalue;
 
 
 
@@ -2675,10 +2676,14 @@ void main(void) {
 
     ADC_cflag = 1;
     while (1) {
+        PORTC = ADC_analogvalue;
         if (ADC_cflag == 1) {
             _delay((unsigned long)((500)*((8000000)/4000000.0)));
             ADC_cflag = 0;
             ADCON0bits.GO = 1;
+        }
+        if (ADC_analogvalue > PORTD){
+            PORTEbits.RE0 = 1;
         }
     }
 }
@@ -2694,7 +2699,7 @@ void setup(void) {
     ANSELbits.ANS2 = 1;
 
     INTCONbits.GIE = 1;
-# 84 "main2.c"
+# 89 "main2.c"
     TMR0 = 0;
     TRISA = 0;
     TRISAbits.TRISA2 = 1;
@@ -2715,7 +2720,7 @@ void setup(void) {
     PIE1bits.ADIE = 1;
     ADCON0bits.ADON = 1;
 }
-# 113 "main2.c"
+# 118 "main2.c"
 void __attribute__((picinterrupt(("")))) isr(void) {
     if (INTCONbits.RBIF == 1) {
         if (PORTBbits.RB0 == 1) {
@@ -2726,7 +2731,7 @@ void __attribute__((picinterrupt(("")))) isr(void) {
         INTCONbits.RBIF = 0;
     }
     if(PIR1bits.ADIF == 1){
-        PORTC = ADRESH;
+        ADC_analogvalue = ADRESH;
         ADC_cflag = 1;
         PIR1bits.ADIF = 0;
     }
