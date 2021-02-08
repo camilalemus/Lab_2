@@ -35,12 +35,13 @@
 //                                  VARIABLES
 //******************************************************************************
 
-int DebounceCounter1 = 0;
+//int DebounceCounter1 = 0;
 
 //******************************************************************************
 //                           INSTANCIAR FUNCIONES
 //******************************************************************************
 void setup(void);
+void ADC_init(void);
 
 //******************************************************************************
 //                              CICLO PRINCIPAL
@@ -64,14 +65,13 @@ void setup(void) {
     INTCONbits.TMR0IE = 1;          //Enable Timer0 Interrupts
     OPTION_REGbits.PSA = 0;         //Set Prescaler to Timer0
     OPTION_REGbits.T0CS = 0;        //Internal clock
- //   OPTION_REGbits.INTEDG = 0;      //Interrupt occurs on the falling edge
 
     OPTION_REGbits.PS0 = 1;         //Prescaler 1:32
     OPTION_REGbits.PS1 = 0;
     OPTION_REGbits.PS2 = 0;
     //OPTION_REGbits.nRBPU = 0;       //Set PortB as pullups
     TMR0 = 0;                       //Set Timer0 start point
-    TRISC = 0;                      //Set Port C and B bc are outputs
+    TRISC = 0;                      //Port C and B are outputs
     TRISD = 0;
     TRISB = 0;
     PORTC = 0;                      // Turn off display and LEDs
