@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\camil\AppData\Local\Temp\s7ns.o
+$C:\Users\camil\AppData\Local\Temp\sorg.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -71,12 +71,12 @@ STRING 192-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab2_D2.X.production.o
-F cinit CODE >625:C:\Users\camil\AppData\Local\Temp\s7ns.s
-F cinit CODE >628:C:\Users\camil\AppData\Local\Temp\s7ns.s
-F cinit CODE >639:C:\Users\camil\AppData\Local\Temp\s7ns.s
-10 cinit CODE >645:C:\Users\camil\AppData\Local\Temp\s7ns.s
-10 cinit CODE >647:C:\Users\camil\AppData\Local\Temp\s7ns.s
-11 cinit CODE >648:C:\Users\camil\AppData\Local\Temp\s7ns.s
+F cinit CODE >625:C:\Users\camil\AppData\Local\Temp\sorg.s
+F cinit CODE >628:C:\Users\camil\AppData\Local\Temp\sorg.s
+F cinit CODE >639:C:\Users\camil\AppData\Local\Temp\sorg.s
+10 cinit CODE >645:C:\Users\camil\AppData\Local\Temp\sorg.s
+10 cinit CODE >647:C:\Users\camil\AppData\Local\Temp\sorg.s
+11 cinit CODE >648:C:\Users\camil\AppData\Local\Temp\sorg.s
 4 intentry CODE >113:C:\Users\camil\Desktop\UVG\2021\Electrónica Digital 2\Lab_2\Lab2_D2.X\main2.c
 143 text3 CODE >113:C:\Users\camil\Desktop\UVG\2021\Electrónica Digital 2\Lab_2\Lab2_D2.X\main2.c
 143 text3 CODE >114:C:\Users\camil\Desktop\UVG\2021\Electrónica Digital 2\Lab_2\Lab2_D2.X\main2.c
@@ -236,21 +236,21 @@ __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _TMR0 1 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\camil\AppData\Local\Temp\s7ns.o
+___sp 0 0 STACK 2 stack C:\Users\camil\AppData\Local\Temp\sorg.o
 _main 236 0 CODE 0 maintext dist/default/production\Lab2_D2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
-start 18 0 CODE 0 init C:\Users\camil\AppData\Local\Temp\s7ns.o
+start 18 0 CODE 0 init C:\Users\camil\AppData\Local\Temp\sorg.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _ADC_cflag 7A 0 COMMON 1 bssCOMMON dist/default/production\Lab2_D2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_ADC_init 0 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\s7ns.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\s7ns.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\s7ns.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\s7ns.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\s7ns.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\s7ns.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\sorg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\sorg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\sorg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\sorg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\sorg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\camil\AppData\Local\Temp\sorg.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -262,13 +262,13 @@ __Lmaintext 0 0 ABS 0 maintext -
 ADC_init@ADCSbit 78 0 COMMON 1 cstackCOMMON dist/default/production\Lab2_D2.X.production.o
 _ADC_init 28 0 CODE 0 text2 dist/default/production\Lab2_D2.X.production.o
 __end_of_ADC_init 236 0 CODE 0 text2 dist/default/production\Lab2_D2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\camil\AppData\Local\Temp\s7ns.o
-___stacklo 0 0 ABS 0 - C:\Users\camil\AppData\Local\Temp\s7ns.o
+___stackhi 0 0 ABS 0 - C:\Users\camil\AppData\Local\Temp\sorg.o
+___stacklo 0 0 ABS 0 - C:\Users\camil\AppData\Local\Temp\sorg.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab2_D2.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\camil\AppData\Local\Temp\s7ns.o
+___int_sp 0 0 STACK 2 stack C:\Users\camil\AppData\Local\Temp\sorg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -311,7 +311,7 @@ _isr 286 0 CODE 0 text3 dist/default/production\Lab2_D2.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
 __end_of_isr 2D6 0 CODE 0 text3 dist/default/production\Lab2_D2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\camil\AppData\Local\Temp\s7ns.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\camil\AppData\Local\Temp\sorg.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Lab2_D2.X.production.o
 __pmaintext 236 0 CODE 0 maintext dist/default/production\Lab2_D2.X.production.o
 __Lcommon 0 0 ABS 0 common -

@@ -2625,7 +2625,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 # 14 "./ADC.h" 2
-# 25 "./ADC.h"
+# 26 "./ADC.h"
 void ADC_init(uint8_t ADCSbit,uint8_t Channel, uint8_t Justified, uint8_t Vref);
 # 1 "ADC.c" 2
 

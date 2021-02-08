@@ -139,7 +139,7 @@ intentry 8 323 CODE 8 0
 cstackCOMMON 70 7A COMMON 70 1
 %locals
 dist/default/production\Lab2_D2.X.production.o
-C:\Users\camil\AppData\Local\Temp\s7ns.s
+C:\Users\camil\AppData\Local\Temp\sorg.s
 625 F 0 CODE 0
 628 F 0 CODE 0
 639 F 0 CODE 0

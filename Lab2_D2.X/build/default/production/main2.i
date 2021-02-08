@@ -2648,7 +2648,7 @@ typedef uint16_t uintptr_t;
 # 14 "./ADC.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 14 "./ADC.h" 2
-# 25 "./ADC.h"
+# 26 "./ADC.h"
 void ADC_init(uint8_t ADCSbit,uint8_t Channel, uint8_t Justified, uint8_t Vref);
 # 33 "main2.c" 2
 

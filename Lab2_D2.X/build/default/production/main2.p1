@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45 main2.c
 [; ;main2.c: 45: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
-"25 ./ADC.h
-[; ;./ADC.h: 25: void ADC_init(uint8_t ADCSbit,uint8_t Channel, uint8_t Justified, uint8_t Vref);
+"26 ./ADC.h
+[; ;./ADC.h: 26: void ADC_init(uint8_t ADCSbit,uint8_t Channel, uint8_t Justified, uint8_t Vref);
 [v _ADC_init `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
