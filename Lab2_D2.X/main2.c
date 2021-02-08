@@ -38,6 +38,7 @@
 #define _XTAL_FREQ (8000000)
 
 uint8_t ADC_cflag;
+uint8_t ADC_analogvalue;
 
 //******************************************************************************
 //                           INSTANCIAR FUNCIONES
@@ -54,10 +55,14 @@ void main(void) {
 //    ADCON0bits.GO = 1;
     ADC_cflag = 1; 
     while (1) {
+        PORTC = ADC_analogvalue;
         if (ADC_cflag == 1) { // When the value is copied on my display
             __delay_us(500); // Wait the required acquisition time
             ADC_cflag = 0; // Turn off the adc_c flag
             ADCON0bits.GO = 1; // Start ADC Convertion
+        }
+        if (ADC_analogvalue > PORTD){
+            PORTEbits.RE0 = 1;
         }
     }
 }
@@ -120,7 +125,7 @@ void __interrupt() isr(void) {
         INTCONbits.RBIF = 0; //Turn off the interrupt flag
     }
     if(PIR1bits.ADIF == 1){     //Check ADC interrupt flag
-        PORTC = ADRESH;         //Copy the 8 msb on my display
+        ADC_analogvalue = ADRESH;         //Copy the 8 msb on my display on PORTC
         ADC_cflag = 1;          //When the value is copied, turn on the adc_cflag
         PIR1bits.ADIF = 0;      //Turn off the ADC interrupt flag
     }
